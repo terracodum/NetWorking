@@ -1,0 +1,25 @@
+.postTitle {
+    font-size: 23px;
+    font-weight: 600;
+    word-break: normal;
+    
+    
+}
+.postAutor {
+    margin: 0 0 10px 0;
+}
+.postDate {
+    color: #7a8195;
+    font-size: 15px;
+    margin: 20px 0 0 0
+}
+.post {
+    border: var(--accent) 2px solid ;
+    box-shadow: 1px 2px var(--primary);
+    border-radius: 10px;
+    text-align: left;
+    padding: 20px 40px;
+    width: 45vw;
+    background-color: #323435;
+    margin-bottom: 30px;
+}
