@@ -4,22 +4,19 @@
   padding: 2rem;
   text-align: center;
 
-
   --text: #a39ec8;
   --background: #242424;
   --primary: #5a2674;
   --secondary: #64624a;
   --accent: #9e6a9f;
-
 }
 * {
-  color: var(--text)
+  color: var(--text);
 }
 body {
   background-color: var(--background);
 }
 .postContainer {
-
   margin: 20px 0;
   display: flex;
   flex-direction: column;
