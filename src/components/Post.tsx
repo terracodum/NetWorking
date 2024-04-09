@@ -1,17 +1,17 @@
 import "./Post.css";
 
-type Props = {
-  autor: string;
+interface IPost {
+  author: string;
   title: string;
-  text: any;
+  text: string;
   date: Date;
-};
+}
 
-function Post(props: Props) {
+function Post(props: IPost) {
   return (
     <div className="post">
       <h3 className="postTitle">{props.title}</h3>
-      <h4 className="postAutor">{props.autor}</h4>
+      <h4 className="postAutor">{props.author}</h4>
       <p className="postText">{props.text}</p>
       <p className="postDate">{props.date.toDateString()}</p>
     </div>
