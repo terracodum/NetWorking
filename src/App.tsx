@@ -27,12 +27,28 @@ function App(props: Props) {
   const [posts, setPosts] = useState([testPost]);
   const [isOpen, setIsOpen] = useState(false);
 
+  // States for inputs in the popup form
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+
   function openPopup() {
     setIsOpen(true);
   }
 
   function addPost() {
-    setPosts([...posts, testPost]);
+    // Formulating the post
+    const post = {
+      author: props.userName,
+      title: title,
+      text: text,
+      date: new Date(),
+    };
+
+    setPosts([...posts, post]);
+    // Reseting the states
+    setTitle("");
+    setText("");
+    // Closing the popup (it rerenders automatically)
     setIsOpen(false);
   }
 
@@ -81,7 +97,36 @@ function App(props: Props) {
               </button>
             </div>
 
-            <div className="popup-body">ISOPEN</div>
+            <div className="popup-body">
+              {/*
+                `e.preventDefault()` doesn't allow the page to reload on submit
+              */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <div className="form-field">
+                  <label htmlFor="title">Title:</label>
+                  <input
+                    id="title"
+                    type="text"
+                    // Dynamically change the state on input change
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="text">Text:</label>
+                  <input
+                    id="text"
+                    type="text"
+                    // Dynamically change the state on input change
+                    onChange={(e) => setText(e.target.value)}
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}
