@@ -4,6 +4,7 @@
   word-break: normal;
 }
 .postAutor {
+  font-size: 16px;
   margin: 0 0 10px 0;
 }
 .postDate {
@@ -20,4 +21,21 @@
   width: 45vw;
   background-color: #323435;
   margin-bottom: 30px;
+}
+.moreBtn {
+  background-color: var(--background);
+  border: solid var(--accent);
+  box-shadow: 1px 2px var(--primary);
+  border-radius: 10px;
+
+
+}
+.headerPost {
+  display: flex;
+}
+.dot {
+  display: block;
+  height: 2px;
+  width: 2px;
+  background-color: var(--text);
 }

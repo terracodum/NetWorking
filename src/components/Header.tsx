@@ -11,18 +11,8 @@ function Header(props: Props) {
   return (
     <>
       <header className="header">
-        <h2 className="logo">NikitaHarlov.ru</h2>
+        <h2 className="logo">HardLove.ru</h2>
         <div className="postData">
-          <button
-            onClick={() => {
-              setPostQuantity(postQuantity + 1);
-            }}
-            id="newPost"
-          >
-            {" "}
-            New post{" "}
-          </button>
-          <p>Quantity of post: {postQuantity}</p>
         </div>
         <div className="userData">
           <p>{props.userName}</p>

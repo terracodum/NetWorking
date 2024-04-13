@@ -13,6 +13,7 @@ interface IPost {
   title: string;
   text: string;
   date: Date;
+  id: string;
 }
 
 function App(props: Props) {
@@ -22,6 +23,7 @@ function App(props: Props) {
       "Artificial Intelligence: The Future Is Here - How AI is Changing the World 🤖🌐",
     text: "ABERTODELSngjkdslkjbgljkabdl aSSFKJ BDKLBGLK K;JJNSNAKJ FKDBB LBA FJKAS KJNFAJK NDJKGB KJLABJK DGDJKN DJNA N ASKN",
     date: new Date(2023, 7, 18),
+    id: new Date(2023, 7, 18).getTime().toString()
   };
 
   const [posts, setPosts] = useState([testPost]);
@@ -30,11 +32,15 @@ function App(props: Props) {
   // States for inputs in the popup form
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const [isOpenDeleter, setIsOpenDeleter] = useState(false);
 
   function openPopup() {
     setIsOpen(true);
   }
+  function deletePost(id: string) {
+    setPosts(posts.filter((post) => post.id !== id));
 
+  }
   function addPost() {
     // Formulating the post
     const post = {
@@ -42,6 +48,7 @@ function App(props: Props) {
       title: title,
       text: text,
       date: new Date(),
+      id: Date.now.toString()
     };
 
     setPosts([...posts, post]);
@@ -56,7 +63,7 @@ function App(props: Props) {
     <>
       <Header img={coolAva} userName={props.userName} />
 
-      <button onClick={openPopup}>Add post</button>
+      <button onClick={openPopup} id="newPost">Add post</button>
 
       <div className="postContainer">
         {/*
@@ -66,36 +73,26 @@ function App(props: Props) {
         */}
         {posts.map((post: IPost) => {
           return (
+            <>
             <Post
               author={post.author}
               title={post.title}
               text={post.text}
               date={post.date}
+              id={post.id}
             />
+            <button className="newPost" onClick={() => {deletePost(post.id)}}>Delete</button>
+            </>
           );
         })}
       </div>
-
       {/*
         Наш попап, объяснения стилей в файле App.css
       */}
+
       {isOpen && (
         <div className="overlay">
           <div className="popup">
-            <div className="popup-header">
-              <button onClick={addPost} className="add-post-btn">
-                Add post
-              </button>
-
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                className="close-popup-btn"
-              >
-                Close
-              </button>
-            </div>
 
             <div className="popup-body">
               {/*
@@ -106,6 +103,7 @@ function App(props: Props) {
                   e.preventDefault();
                 }}
               >
+                <h4>Add new post</h4>
                 <div className="form-field">
                   <label htmlFor="title">Title:</label>
                   <input
@@ -124,6 +122,20 @@ function App(props: Props) {
                     // Dynamically change the state on input change
                     onChange={(e) => setText(e.target.value)}
                   />
+                </div>
+                <div className="popup-header">
+                  <button onClick={addPost} className="add-post-btn">
+                    Add post
+                  </button>
+    
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
+                    className="close-popup-btn"
+                  >
+                    Close
+                  </button>
                 </div>
               </form>
             </div>

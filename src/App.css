@@ -48,9 +48,22 @@ body {
   align-items: center;
 }
 
+.form-field {
+  padding: 10px;
+  margin: 10px;
+}
+#title {
+  width: 30dvw;
+  height: 25px;
+}
+#text {
+  width:30dvw;
+  height: 20dvh;
+}
 .popup {
   padding: 20px;
-
+  width: 50dvw;
+  height: 60dvh;
   background-color: var(--background);
   border-radius: 2rem;
 }
