@@ -105,7 +105,7 @@ function App(props: Props) {
               >
                 <h4>Add new post</h4>
                 <div className="form-field">
-                  <label htmlFor="title">Title:</label>
+                  <label htmlFor="title">Title: </label>
                   <input
                     id="title"
                     type="text"
@@ -115,7 +115,7 @@ function App(props: Props) {
                 </div>
 
                 <div className="form-field">
-                  <label htmlFor="text">Text:</label>
+                  <label htmlFor="text">Text: </label>
                   <textarea
                     id="text"
                     
