@@ -32,7 +32,6 @@ function App(props: Props) {
   // States for inputs in the popup form
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [isOpenDeleter, setIsOpenDeleter] = useState(false);
 
   function openPopup() {
     setIsOpen(true);
@@ -62,6 +61,7 @@ function App(props: Props) {
   return (
     <>
       <Header img={coolAva} userName={props.userName} />
+      <h4>Count of posts: {posts.length}</h4>
 
       <button onClick={openPopup} id="newPost">Add post</button>
 

@@ -20,16 +20,9 @@
   padding: 20px 40px;
   width: 45vw;
   background-color: #323435;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
-.moreBtn {
-  background-color: var(--background);
-  border: solid var(--accent);
-  box-shadow: 1px 2px var(--primary);
-  border-radius: 10px;
 
-
-}
 .headerPost {
   display: flex;
 }
