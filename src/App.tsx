@@ -47,7 +47,7 @@ function App(props: Props) {
       title: title,
       text: text,
       date: new Date(),
-      id: Date.now.toString()
+      id: Date.now().toString()
     };
 
     setPosts([...posts, post]);
