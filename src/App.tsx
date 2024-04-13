@@ -116,9 +116,9 @@ function App(props: Props) {
 
                 <div className="form-field">
                   <label htmlFor="text">Text:</label>
-                  <input
+                  <textarea
                     id="text"
-                    type="text"
+                    
                     // Dynamically change the state on input change
                     onChange={(e) => setText(e.target.value)}
                   />
